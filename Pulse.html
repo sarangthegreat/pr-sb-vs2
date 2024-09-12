@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community - Project SkillBridge</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .nav-link {
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .nav-link:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+            color: white;
+        }
+        .thread {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: #f9f9f9;
+        }
+        .thread-title {
+            font-weight: bold;
+            cursor: pointer;
+            color: #007bff;
+            transition: color 0.3s;
+        }
+        .thread-title:hover {
+            color: #0056b3; /* Darker blue on hover */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="bg-dark text-white p-3">
+        <div class="container">
+            <h1>Community</h1>
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link text-white" onclick="navigateTo('homepage.html')">Home</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" onclick="navigateTo('groups.html')">Tribe</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" onclick="navigateTo('chat.html')">Chats</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" onclick="navigateTo('profile.html')">Profile</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h2>Welcome to the Community Page!</h2>
+        <input type="text" id="searchInput" class="form-control" placeholder="Search discussions..." onkeyup="searchDiscussions()">
+        
+        <h3 class="mt-4">Discussion Threads</h3>
+        <div id="threadsContainer">
+            <div class="thread">
+                <div class="thread-title" onclick="navigateTo('discussion.html?id=1')">What do you think about AI?</div>
+                <p>Let's discuss the impact of AI on our daily lives.</p>
+            </div>
+            <div class="thread">
+                <div class="thread-title" onclick="navigateTo('discussion.html?id=2')">Best programming languages to learn in 2024</div>
+                <p>Share your thoughts on the most relevant programming languages for the future.</p>
+            </div>
+            <!-- More threads can be added here -->
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function navigateTo(page) {
+            window.location.href = page; // Redirect to the specified page
+        }
+
+        function searchDiscussions() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const threads = document.querySelectorAll('.thread');
+            threads.forEach(thread => {
+                const title = thread.querySelector('.thread-title').textContent.toLowerCase();
+                thread.style.display = title.includes(input) ? 'block' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Groups - Project SkillBridge</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .group-card {
+            margin-bottom: 20px;
+        }
+        .chatbox {
+            display: none; /* Initially hidden */
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-top: 10px;
+        }
+        .chat-message {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="bg-dark text-white p-3">
+        <div class="container">
+            <h1>Groups</h1>
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link text-white" href="homepage.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="community.html">Community</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="profile.html">Profile</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2 class="text-center">Explore Groups</h2>
+        <p class="text-center">Join a group to collaborate on projects and share ideas!</p>
+
+        <!-- Create Group Button -->
+        <div class="text-center mb-4">
+            <button class="btn btn-success" data-toggle="modal" data-target="#createGroupModal">Create New Group</button>
+        </div>
+
+        <!-- Groups List -->
+        <div class="row" id="groupsList">
+            <div class="col-md-4 group-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Group Title 1</h5>
+                        <p class="card-text">Description of Group 1.</p>
+                        <button class="btn btn-primary" onclick="joinGroup('Group Title 1')">Join Group</button>
+                        <div class="chatbox" id="chatbox-1">
+                            <h6>Chat</h6>
+                            <div id="messages-1" class="messages"></div>
+                            <input type="text" id="messageInput-1" placeholder="Type a message..." class="form-control">
+                            <button class="btn btn-secondary mt-2" onclick="sendMessage('Group Title 1', 1)">Send</button>
+                            <h6>Members:</h6>
+                            <div class="members" id="members-1"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- More groups -->
+        </div>
+    </div>
+
+    <!-- Create Group Modal -->
+    <div class="modal fade" id="createGroupModal" tabindex="-1" role="dialog" aria-labelledby="createGroupModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="createGroupModalLabel">Create New Group</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="createGroupForm">
+                        <div class="form-group">
+                            <label for="groupName">Group Name</label>
+                            <input type="text" class="form-control" id="groupName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="groupDescription">Description</label>
+                            <textarea class="form-control" id="groupDescription" rows="3" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Create Group</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="joinGroup.js"></script>
+</body>
+</html>

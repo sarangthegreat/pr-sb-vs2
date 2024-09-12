@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page - Project SkillBridge</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .hero {
+            background-color: #007bff;
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+        }
+        .card {
+            margin-bottom: 30px;
+            position: relative;
+            height: 300px; /* Increased height */
+        }
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .start-button {
+            align-self: flex-end;
+            margin-top: 10px;
+        }
+        .card-img-top {
+            height: 120px; /* Adjusted image height */
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="bg-dark text-white p-3">
+        <div class="container">
+            <h1>Project SkillBridge</h1>
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link text-white" href="homepage.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="forge.html">Forge</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="pulse.html">Pulse</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="#spotlight">Spotlight</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="#about">About Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>Welcome to Project SkillBridge</h2>
+            <p>Bridging the gap between education and industry.</p>
+            <a href="forge.html" class="btn btn-light btn-lg">Explore the Forge</a>
+        </div>
+    </section>
+
+    <!-- Featured Projects Section -->
+    <section id="featured-projects" class="container my-5">
+        <h2 class="text-center">Featured Projects</h2>
+        <div class="row">
+            <!-- First Row (5 projects) -->
+            <div class="col-md-2">
+                <div class="card">
+                    <img src="project1.jpg" class="card-img-top" alt="Project 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Project Title 1</h5>
+                        <p class="card-text">Brief description of Project 1.</p>
+                        <a href="#" class="btn btn-primary start-button">Start Project</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="card">
+                    <img src="project2.jpg" class="card-img-top" alt="Project 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Project Title 2</h5>
+                        <p class="card-text">Brief description of Project 2.</p>
+                        <a href="#" class="btn btn-primary start-button">Start Project</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="card">
+                    <img src="project3.jpg" class="card-img-top" alt="Project 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Project Title 3</h5>
+                        <p class="card-text">Brief description of Project 3.</p>
+                        <a href="#" class="btn btn-primary start-button">Start Project</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="card">
+                    <img src="project4.jpg" class="card-img-top" alt="Project 4">
+                    <div class="card-body">
+                        <h5 class="card-title">Project Title 4</h5>
+                        <p class="card-text">Brief description of Project 4.</p>
+                        <a href="#" class="btn btn-primary start-button">Start Project</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="card">
+                    <img src="project5.jpg" class="card-img-top" alt="Project 5">
+                    <div class="card-body">
+                        <h5 class="card-title">Project Title 5</h5>
+                        <p class="card-text">Brief description of Project 5.</p>
+                        <a href="#" class="btn btn-primary start-button">Start Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Second Row (Project 6 under Project 1 and Project 7 under Project 3) -->
+        <div class="row">
+            <div class="col-md-2">
+                <div class="card">
+                    <img src="project6.jpg" class="card-img-top" alt="Project 6">
+                    <div class="card-body">
+                        <h5 class="card-title">Project Title 6</h5>
+                        <p class="card-text">Brief description of Project 6.</p>
+                        <a href="#" class="btn btn-primary start-button">Start Project</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 ">
+                <div class="card">
+                    <img src="project7.jpg" class="card-img-top" alt="Project 7">
+                    <div class="card-body">
+                        <h5 class="card-title">Project Title 7</h5>
+                        <p class="card-text">Brief description of Project 7.</p>
+                        <a href="#" class="btn btn-primary start-button">Start Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

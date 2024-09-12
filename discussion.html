@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discussion - Project SkillBridge</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        .container {
+            margin-top: 50px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2, h3 {
+            font-weight: 600;
+            color: #0078d4;
+        }
+        p {
+            font-size: 1.1rem;
+            color: #555;
+        }
+        .reply {
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #f1f1f1;
+            border-left: 4px solid #0078d4;
+            border-radius: 6px;
+        }
+        .reply strong {
+            color: #0078d4;
+        }
+        #replyInput {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            margin-top: 10px;
+        }
+        button {
+            border-radius: 6px;
+        }
+        .btn-primary {
+            background-color: #0078d4;
+            border-color: #0078d4;
+        }
+        .btn-primary:hover {
+            background-color: #005bb5;
+            border-color: #005bb5;
+        }
+        .btn-secondary {
+            background-color: #6c757d;
+            border-color: #6c757d;
+        }
+        .btn-secondary:hover {
+            background-color: #5a6268;
+            border-color: #545b62;
+        }
+        .replies-header {
+            margin-top: 30px;
+        }
+        .back-btn-container {
+            margin-top: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2 id="discussionTitle"></h2>
+        <p id="discussionDescription"></p>
+        
+        <h3 class="replies-header">Replies</h3>
+        <div id="repliesContainer"></div>
+        
+        <h3 class="mt-4">Add Your Reply</h3>
+        <textarea id="replyInput" placeholder="Write your reply..." rows="4"></textarea>
+        <button class="btn btn-primary mt-3" onclick="submitReply()">Reply</button>
+
+        <div class="back-btn-container">
+            <button class="btn btn-secondary mt-4" onclick="navigateBack()">Back to Community</button>
+        </div>
+    </div>
+
+    <script>
+        const discussions = {
+            1: {
+                title: "What do you think about AI?",
+                description: "Let's discuss the impact of AI on our daily lives.",
+                replies: [
+                    { user: "User1", text: "AI is transforming many industries!" },
+                    { user: "User2", text: "I believe AI will enhance our productivity." }
+                ]
+            },
+            2: {
+                title: "Best programming languages to learn in 2024",
+                description: "Share your thoughts on the most relevant programming languages for the future.",
+                replies: [
+                    { user: "User3", text: "Python is definitely a must-learn!" },
+                    { user: "User4", text: "Don't forget about JavaScript for web development." }
+                ]
+            }
+        };
+
+        function getUrlParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        function loadDiscussion() {
+            const discussionId = getUrlParameter('id');
+            const discussion = discussions[discussionId];
+
+            if (discussion) {
+                document.getElementById('discussionTitle').innerText = discussion.title;
+                document.getElementById('discussionDescription').innerText = discussion.description;
+
+                const repliesContainer = document.getElementById('repliesContainer');
+                discussion.replies.forEach(reply => {
+                    const replyDiv = document.createElement('div');
+                    replyDiv.classList.add('reply');
+                    replyDiv.innerHTML = `<strong>${reply.user}:</strong> ${reply.text}`;
+                    repliesContainer.appendChild(replyDiv);
+                });
+            } else {
+                document.getElementById('discussionTitle').innerText = "Discussion not found.";
+            }
+        }
+
+        function submitReply() {
+            const replyText = document.getElementById('replyInput').value.trim();
+            if (replyText) {
+                const newReply = document.createElement('div');
+                newReply.classList.add('reply');
+                newReply.innerHTML = `<strong>You:</strong> ${replyText}`;
+                document.getElementById('repliesContainer').appendChild(newReply);
+                document.getElementById('replyInput').value = ''; 
+            }
+        }
+
+        function navigateBack() {
+            window.location.href = 'community.html';
+        }
+
+        window.onload = loadDiscussion;
+    </script>
+</body>
+</html>
